@@ -36,10 +36,10 @@
             int minutes, cost;
             cost = 4;
             Console.Write("Please enter the time spent at the parking garage to the nearest minute:");
-            while(!Int32.TryParse(Console.ReadLine(), out minutes))
-            { 
+            while (!Int32.TryParse(Console.ReadLine(), out minutes) || minutes <= 0)
+            {
                 Console.Write("That is an invalid input... Try Again:");
-            } 
+            }
             if (minutes >= 60)
             {
                 cost = cost + (2 * (minutes / 60));
@@ -49,8 +49,33 @@
                 cost = 20;
             }
             Console.WriteLine($"The cost for parking is ${cost}.00");
+            Console.WriteLine();
 
 
+            int hurricane;
+            Console.Write("Please input a number from 1 to 5:");
+            while(!Int32.TryParse(Console.ReadLine(), out hurricane) || hurricane <= 0 || hurricane > 5)
+            {
+                Console.Write("That is an invalid input... Try Again:");
+            }
+            switch (hurricane)
+            {
+                case 1:
+                    Console.WriteLine("The wind speeds of a level 1 hurricane are 74-95mph");
+                    break;
+                case 2:
+                    Console.WriteLine("The wind speeds of a level 2 hurricane are 96-110mph");
+                    break;
+                case 3:
+                    Console.WriteLine("The wind speeds of a level 3 hurricane are 111-130mph");
+                    break;
+                case 4:
+                    Console.WriteLine("The wind speeds of a level 4 hurricane are 131-155mph");
+                    break;
+                case 5:
+                    Console.WriteLine("The wind speeds of a level 5 hurricane are greater than 155mph");
+                    break;
+            }
 
         }
     }
